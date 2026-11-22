@@ -23,7 +23,7 @@ export default function LoginPage() {
       setLoading(true);
 
       const { error } = await authClient.signIn.email({
-        email,
+        email: email.trim().toLowerCase(),
         password,
         callbackURL: `${window.location.origin}/`,
       });
