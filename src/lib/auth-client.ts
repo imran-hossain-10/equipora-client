@@ -6,10 +6,6 @@ import {
 } from "better-auth/client/plugins";
 
 export const authClient = createAuthClient({
-  baseURL:
-    process.env.NEXT_PUBLIC_SERVER_URL ||
-    "https://equipora-server-livid.vercel.app",
-
   basePath: "/api/auth",
 
   fetchOptions: {
