@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Equipora – Equipment Rental Platform
 
-## Getting Started
+Equipora is a full-stack equipment rental platform where users can rent equipment for their personal and professional needs. Equipment owners can list their products, manage rental requests, and track their earnings. Admins can manage users, equipment, and rental activities through a dedicated dashboard.
 
-First, run the development server:
+## Live Website
+
+**Live URL:** [Add your deployed frontend URL here]
+
+## Main Features
+
+- User registration and login with email and password.
+- Google authentication support.
+- Role-based dashboards for Customers, Owners, and Admins.
+- Browse and search approved equipment.
+- Filter equipment by category, rental type, and price.
+- View detailed equipment information.
+- Owners can add, update, and delete equipment listings.
+- Customers can book equipment and make payments using Stripe.
+- Secure payment verification through Stripe Webhooks.
+- Customers can manage their rental bookings.
+- Owners can approve or reject rental requests.
+- Owners can mark completed rentals.
+- Admins can manage users, equipment, and bookings.
+- Admin and Owner dashboards include analytics.
+- Responsive design for mobile, tablet, and desktop devices.
+
+## Technologies Used
+
+### Frontend
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Framer Motion
+- Lucide React
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Better Auth
+- JSON Web Token (JWT)
+- Stripe
+
+## Installation and Setup
+
+### 1. Clone the Frontend Repository
+
+```bash
+git clone YOUR_FRONTEND_REPOSITORY_URL
+cd equipora-client
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env.local` file in the frontend root directory:
+
+```env
+NEXT_PUBLIC_SERVER_URL=http://localhost:5000
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
+
+### 4. Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Backend Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Clone the backend repository separately:
 
-## Learn More
+```bash
+git clone YOUR_BACKEND_REPOSITORY_URL
+cd equipora-server
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Configure the required environment variables in the backend `.env` file, including MongoDB, Better Auth, Stripe, and frontend URL settings.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Start the backend:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run dev
+```
 
-## Deploy on Vercel
+## Payment Information
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Equipora uses Stripe Checkout for payment processing. Payments have been tested using Stripe Test Mode.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Purpose
+
+The purpose of Equipora is to make equipment rental easier and more accessible by connecting equipment owners with customers through a secure and user-friendly platform.
