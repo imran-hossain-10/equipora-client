@@ -1,26 +1,279 @@
-@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ========================================
+   LIGHT THEME
+======================================== */
+
+:root {
+  color-scheme: light;
+
+  --background: #F8FAFC;
+  --foreground: #172B3A;
+
+  --card: #FFFFFF;
+  --card-foreground: #172B3A;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #172B3A;
+
+  --primary: #142B3D;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #EAF0F4;
+  --secondary-foreground: #142B3D;
+
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+
+  --accent: #10B981;
+  --accent-foreground: #FFFFFF;
+
+  --destructive: #DC2626;
+
+  --border: #E2E8F0;
+  --input: #CBD5E1;
+  --ring: #10B981;
+
+  --chart-1: #10B981;
+  --chart-2: #142B3D;
+  --chart-3: #3B82F6;
+  --chart-4: #F59E0B;
+  --chart-5: #8B5CF6;
+
+  --radius: 0.75rem;
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #172B3A;
+  --sidebar-primary: #142B3D;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EAF0F4;
+  --sidebar-accent-foreground: #142B3D;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #10B981;
+}
+
+/* ========================================
+   DARK THEME
+======================================== */
+
+.dark {
+  color-scheme: dark;
+
+  --background: #0B1722;
+  --foreground: #F1F5F9;
+
+  --card: #142536;
+  --card-foreground: #F1F5F9;
+
+  --popover: #142536;
+  --popover-foreground: #F1F5F9;
+
+  --primary: #10B981;
+  --primary-foreground: #052E22;
+
+  --secondary: #1E3447;
+  --secondary-foreground: #E2E8F0;
+
+  --muted: #1E3447;
+  --muted-foreground: #94A3B8;
+
+  --accent: #10B981;
+  --accent-foreground: #052E22;
+
+  --destructive: #EF4444;
+
+  --border: #263B4D;
+  --input: #334B60;
+  --ring: #10B981;
+
+  --chart-1: #10B981;
+  --chart-2: #60A5FA;
+  --chart-3: #F59E0B;
+  --chart-4: #A78BFA;
+  --chart-5: #F472B6;
+
+  --sidebar: #142536;
+  --sidebar-foreground: #F1F5F9;
+  --sidebar-primary: #10B981;
+  --sidebar-primary-foreground: #052E22;
+  --sidebar-accent: #1E3447;
+  --sidebar-accent-foreground: #F1F5F9;
+  --sidebar-border: #263B4D;
+  --sidebar-ring: #10B981;
+}
+
+/* ========================================
+   BASE STYLES
+======================================== */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button,
+  [role="button"] {
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  ::selection {
+    background: #10B981;
+    color: #FFFFFF;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94A3B8;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10B981;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0B1722;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334B60;
+}
+
+/* ========================================
+   REUSABLE DESIGN UTILITIES
+======================================== */
+
+.container-custom {
+  width: min(100% - 40px, 1280px);
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding-block: 80px;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #10B981, #059669);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.surface-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.transition-smooth {
+  transition: all 250ms ease;
+}
+
+@media (max-width: 768px) {
+  .container-custom {
+    width: min(100% - 32px, 1280px);
+  }
+
+  .section-padding {
+    padding-block: 56px;
+  }
 }
