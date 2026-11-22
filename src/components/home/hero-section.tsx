@@ -123,7 +123,7 @@ export default function HeroSection() {
               className="aspect-[4/3] w-full bg-cover bg-center"
               style={{
                 backgroundImage:
-                  "linear-gradient(180deg, transparent 45%, rgba(10, 25, 38, 0.75) 100%), url('/images/hero-equipment.jpg')",
+                  "linear-gradient(180deg, transparent 45%, rgba(10, 25, 38, 0.75) 100%), url('/Images/hero-equipment.jpg')",
               }}
             />
 
