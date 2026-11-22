@@ -22,7 +22,7 @@ import { authClient } from "@/lib/auth-client";
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "https://equipora-server-livid.vercel.app";
+  "https://equipora-server-livid.vercel.app/api";
 
 type Equipment = {
   _id?: string;

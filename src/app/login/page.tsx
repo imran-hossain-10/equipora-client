@@ -25,7 +25,7 @@ export default function LoginPage() {
       const { error } = await authClient.signIn.email({
         email,
         password,
-        callbackURL: "/",
+        callbackURL: `${window.location.origin}/`,
       });
 
       if (error) {
@@ -35,8 +35,12 @@ export default function LoginPage() {
 
       router.push("/");
       router.refresh();
-    } catch {
-      setError("Something went wrong. Please try again.");
+    } catch (caughtError) {
+      setError(
+        caughtError instanceof Error
+          ? caughtError.message
+          : "Unable to connect to the server. Please try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -50,7 +54,7 @@ export default function LoginPage() {
 
       const { error } = await authClient.signIn.social({
         provider: "google",
-        callbackURL: "/",
+        callbackURL: `${window.location.origin}/`,
       });
 
       if (error) {

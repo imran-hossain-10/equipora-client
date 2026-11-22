@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "https://equipora-server-livid.vercel.app";
+  process.env.NEXT_PUBLIC_API_URL || "https://equipora-server-livid.vercel.app/api";
 
 interface Booking {
   _id: string;

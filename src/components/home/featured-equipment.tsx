@@ -34,7 +34,7 @@ type EquipmentResponse = {
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "https://equipora-server-livid.vercel.app";
+  "https://equipora-server-livid.vercel.app/api";
 
 const formatPrice = (price: number) =>
   new Intl.NumberFormat("en-BD", {

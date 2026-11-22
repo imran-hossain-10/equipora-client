@@ -29,7 +29,7 @@ interface Equipment {
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "https://equipora-server-livid.vercel.api";
+  "https://equipora-server-livid.vercel.app/api";
 
 const categories = [
   { label: "Electronics", value: "Electronics", slug: "electronics" },

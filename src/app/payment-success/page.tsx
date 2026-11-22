@@ -16,7 +16,7 @@ import { authClient } from "@/lib/auth-client";
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "https://equipora-server-livid.vercel.app";
+  "https://equipora-server-livid.vercel.app/api";
 
 interface Booking {
   _id: string;
